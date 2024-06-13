@@ -1,15 +1,17 @@
 package edu.austral.ingsis.clifford.archive;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dir implements Component {
   private final String name;
   private final Dir parent;
-  private List<Component> files;
+  private final List<Component> files;
 
   public Dir(String name, Dir parent) {
     this.name = name;
     this.parent = parent;
+    this.files = new ArrayList<>();
   }
 
   @Override
