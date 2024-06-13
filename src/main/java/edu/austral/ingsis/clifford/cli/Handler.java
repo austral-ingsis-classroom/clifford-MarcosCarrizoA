@@ -17,6 +17,10 @@ public class Handler {
     this.commandBuilder = getCommandBuilderMap();
   }
 
+  public static Handler getInstance() {
+    return instance;
+  }
+
   private Map<String, Builder> getCommandBuilderMap() {
     return Map.of(
         "cd",
@@ -31,10 +35,6 @@ public class Handler {
         new TouchBuilder(),
         "rm",
         new RmBuilder());
-  }
-
-  public static Handler getInstance() {
-    return instance;
   }
 
   public Dir getRoot() {
