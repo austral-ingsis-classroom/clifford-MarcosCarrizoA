@@ -10,7 +10,7 @@ public class MkDirCommand implements Command {
     Handler system = Handler.getInstance();
     Dir current = system.getCwd();
     for (Component elements : current.getFiles()) {
-      if (elements.getName().equals(command)) {
+      if (elements.getName().equals(command) && elements.isComposite()) {
         return "directory already exists";
       }
     }

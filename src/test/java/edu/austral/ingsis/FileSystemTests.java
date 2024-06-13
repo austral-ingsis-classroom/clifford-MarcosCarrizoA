@@ -45,7 +45,7 @@ public class FileSystemTests {
             entry("pwd", "/emily"),
             entry("touch elizabeth.txt", "'elizabeth.txt' file created"),
             entry("mkdir t-bone", "'t-bone' directory created"),
-            entry("ls", "elizabeth t-bone")));
+            entry("ls", "elizabeth.txt t-bone")));
   }
 
   @Test
@@ -114,7 +114,7 @@ public class FileSystemTests {
             entry("mkdir emily", "'emily' directory created"),
             entry("cd emily", "moved to directory 'emily'"),
             entry("mkdir emily", "'emily' directory created"),
-            entry("touch horace.txt", "'horace.txt' file created"),
+            entry("touch emily.txt", "'emily.txt' file created"),
             entry("touch jetta.txt", "'jetta.txt' file created"),
             entry("ls", "emily emily.txt jetta.txt"),
             entry("rm --recursive emily", "'emily' removed"),

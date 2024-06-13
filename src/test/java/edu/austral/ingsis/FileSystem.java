@@ -8,6 +8,7 @@ public class FileSystem implements FileSystemRunner {
   @Override
   public List<String> executeCommands(List<String> commands) {
     Handler system = Handler.getInstance();
+    system.clean();
     List<String> result = new ArrayList<>();
     for (String command : commands) {
       result.add(system.runCommand(command));

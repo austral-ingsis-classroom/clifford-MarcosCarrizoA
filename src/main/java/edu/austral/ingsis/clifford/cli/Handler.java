@@ -1,11 +1,7 @@
 package edu.austral.ingsis.clifford.cli;
 
 import edu.austral.ingsis.clifford.archive.Dir;
-import edu.austral.ingsis.clifford.builder.Builder;
-import edu.austral.ingsis.clifford.builder.CdBuilder;
-import edu.austral.ingsis.clifford.builder.LsBuilder;
-import edu.austral.ingsis.clifford.builder.MkDirBuilder;
-import edu.austral.ingsis.clifford.builder.PwdBuilder;
+import edu.austral.ingsis.clifford.builder.*;
 import java.util.Map;
 
 public class Handler {
@@ -23,10 +19,18 @@ public class Handler {
 
   private Map<String, Builder> getCommandBuilderMap() {
     return Map.of(
-            "cd", new CdBuilder(),
-            "ls", new LsBuilder(),
-            "mkdir", new MkDirBuilder(),
-            "pwd", new PwdBuilder());
+        "cd",
+        new CdBuilder(),
+        "ls",
+        new LsBuilder(),
+        "mkdir",
+        new MkDirBuilder(),
+        "pwd",
+        new PwdBuilder(),
+        "touch",
+        new TouchBuilder(),
+        "rm",
+        new RmBuilder());
   }
 
   public static Handler getInstance() {
@@ -45,8 +49,15 @@ public class Handler {
     this.cwd = cwd;
   }
 
+  public void clean() {
+    root.getFiles().clear();
+    cwd = root;
+  }
+
   public String runCommand(String command) {
-    if (commandBuilder.get(command.split(" ")[0]) == null) { return "Command not found"; }
+    if (commandBuilder.get(command.split(" ")[0]) == null) {
+      return "Command not found";
+    }
     return commandBuilder.get(command.split(" ")[0]).build(command);
   }
 }
