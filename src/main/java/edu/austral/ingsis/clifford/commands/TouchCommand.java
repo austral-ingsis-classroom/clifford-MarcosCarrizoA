@@ -1,6 +1,5 @@
 package edu.austral.ingsis.clifford.commands;
 
-import edu.austral.ingsis.clifford.archive.Component;
 import edu.austral.ingsis.clifford.archive.Dir;
 import edu.austral.ingsis.clifford.archive.File;
 import edu.austral.ingsis.clifford.cli.Handler;

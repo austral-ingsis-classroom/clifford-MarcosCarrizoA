@@ -13,18 +13,16 @@ public class LsCommand implements Command {
     Dir cwd = system.getCwd();
     if (command.equals("--ord=asc")) {
       return cwd.getFiles().stream()
-              .map(Component::getName)
-              .sorted(Comparator.naturalOrder())
-              .collect(Collectors.joining(" "));
+          .map(Component::getName)
+          .sorted(Comparator.naturalOrder())
+          .collect(Collectors.joining(" "));
     } else if (command.equals("--ord=desc")) {
       return cwd.getFiles().stream()
-              .map(Component::getName)
-              .sorted(Comparator.reverseOrder())
-              .collect(Collectors.joining(" "));
+          .map(Component::getName)
+          .sorted(Comparator.reverseOrder())
+          .collect(Collectors.joining(" "));
     } else if (command.isEmpty()) {
-      return cwd.getFiles().stream()
-              .map(Component::getName)
-              .collect(Collectors.joining(" "));
+      return cwd.getFiles().stream().map(Component::getName).collect(Collectors.joining(" "));
     }
     return "Command not found";
   }
